@@ -23,10 +23,15 @@ it.
 * autoconf 2.69 or later
 * Python 3.5 or later (earlier versions may work, but they haven't been tested)
 * GTK+ 3.18 or later (earlier versions may work, but they haven't been tested)
-* [phue](https://github.com/studioimaginaire/phue) 0.8 or later
+* [phue](https://github.com/studioimaginaire/phue) 0.8 or later (install with `sudo pip3 install phue`)
 * [netdisco](https://github.com/home-assistant/netdisco) 0.7 or later
 * [requests](https://github.com/kennethreitz/requests) 2.10 or later
 * Hue bridge (tested with the first generation only)
+
+On Ubuntu >= 17.10, other dependencies needed:
+
+`sudo apt-get install python-gi-dev libgtk-3-dev gsettings-desktop-schemas-dev libgnome-dekstop-3-dev libxml2-utils`
+
 
 ### Installing
 

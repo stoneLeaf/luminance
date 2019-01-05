@@ -24,6 +24,8 @@ check_command "$AUTOCONF"
 check_command "$AUTOHEADER"
 check_command "$AUTOMAKE"
 
+mkdir -p m4
+
 # Absence of pkg-config or misconfiguration can make some odd error
 # messages, we check if it is installed correctly. See:
 #  https://blogs.oracle.com/mandy/entry/autoconf_weirdness

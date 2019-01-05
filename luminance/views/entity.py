@@ -56,19 +56,27 @@ class ListBoxRow(Gtk.ListBoxRow):
 
         self.color_chooser = builder.get_object('color-chooser')
 
-        if self.model.on:
-            self.color_chooser.set_rgba(
-                hsv_to_gdk_rgb(
-                    self.model.hue,
-                    self.model.saturation,
-                    self.model.brightness
-                )
-            )
+        self.color_chooser_popover_button = builder.get_object('color-chooser-popover-button')
+        self.color_chooser_popover_button.hide()
+
+        # As per specification
+        # https://developers.meethue.com/develop/hue-api/supported-devices/
+        try:
+            if self.model.type == 'Color light' or self.model.type == 'Extended color light':
+                self.color_chooser_popover_button.show()
+                if self.model.on:
+                    self.color_chooser.set_rgba(
+                        hsv_to_gdk_rgb(
+                            self.model.hue,
+                            self.model.saturation,
+                            self.model.brightness
+                        )
+                    )
+        except:
+            pass
 
         self.brightness_scale = builder.get_object('brightness-scale')
         self.brightness_scale.set_value(self.model.brightness)
-
-        self.color_chooser_popover_button = builder.get_object('color-chooser-popover-button')
 
         entity_switch = builder.get_object('entity-switch')
         entity_switch.set_state(self.model.on)
